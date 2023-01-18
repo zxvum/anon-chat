@@ -1,0 +1,100 @@
+@import "variables";
+
+.screen{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .screen__bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -9999;
+
+    &-top{
+      width: 100%;
+      height: 50%;
+      background: $purple;
+    }
+  }
+  
+  .form{
+    background: #fff;
+    width: 840px;
+    padding: 60px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.4);
+
+    .form__logo{
+      position: relative;
+
+      .form__logo-text{
+        font-weight: 700;
+        font-size: 34px;
+        color: $purple;
+      }
+      .form__logo-img{
+        width: 20px;
+        position: absolute;
+        top: -2px;
+        right: -15px;
+      }
+    }
+    .form__info{
+      font-weight: 600;
+      font-size: 26px;
+      color: $text-black;
+      margin-top: 50px;
+    }
+    .form__inputs{
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+
+      &-input{
+        background: #EAEAEA;
+        border-radius: 8px;
+        border: none;
+        width: 560px;
+        padding: 16px 17px;
+        transition: 0.4s all;
+        outline: none;
+
+        &:hover, &:focus{
+          box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+          transform: translateY(-3px);
+        }
+      }
+
+      .textarea{
+        min-height: 180px;
+        max-height: 180px;
+      }
+    }
+    .form__button{
+      width: 500px;
+      height: 42px;
+      background: $purple;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-weight: 600;
+      font-size: 18px;
+      margin-top: 50px;
+      transition: 0.3s all;
+
+      &:hover{
+        box-shadow: 0px 4px 12px $purple;
+        transform: translateY(-3px);
+      }
+    }
+  }
+}

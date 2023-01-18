@@ -5,16 +5,25 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView,
+    beforeEnter: (from, to, next) => {
+      if (localStorage.getItem('name') != null) {
+        router.push({name: 'chat-room'})
+      }
+      return next()
+    }
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    path: '/room',
+    name: 'chat-room',
+    component: () => import('../views/ChatRoomView.vue'),
+    beforeEnter: (from, to, next) => {
+      if (localStorage.getItem('name') == null) {
+        router.push({name: 'home'})
+      }
+      return next()
+    }
+  },
 ]
 
 const router = createRouter({
